@@ -37,9 +37,8 @@ TEST_CASE("The numerator can be equal to 0")
     CHECK(z == Fraction(0, 6));
 }
 
-TEST_CASE("")
+TEST_CASE("Test for operators + , - , * ,/")
 {
-
     // test for +
     CHECK(a + b == Fraction(7, 3));
     CHECK(b + a == Fraction(7, 3));
@@ -70,19 +69,32 @@ TEST_CASE("")
     CHECK(d * c == Fraction(2,15));
     CHECK(z * b == Fraction(0, 3));
 
-    CHECK(b*3.2 == Fraction(-38,15));
-    CHECK(b*0 == Fraction(-38,15));
-    CHECK(3.2*b == Fraction(38,15));
-    CHECK(d*2.421 == Fraction(-2021,1000));
-
-
+    CHECK(b*3.2 == Fraction(32,15));
+    CHECK(b*0 == Fraction(0,15));
+    CHECK(3.2*b == Fraction(32,15));
+    CHECK(d*2.421 == Fraction(2421,2500));
 
     // test for /
+    CHECK(a * b == Fraction(10, 9));
+    CHECK(b * a == Fraction(10, 9));
+    CHECK(b * a == a * b);
+    CHECK(c * d == Fraction(2, 15));
+    CHECK(d * c == Fraction(2, 15));
+    CHECK(z * b == Fraction(0, 3));
+
+    CHECK(b / 3.2 == Fraction(5,24));
+    CHECK_THROWS(b / 0);
+    CHECK(b / b == Fraction(1,1));
+    CHECK(3.2 / b == Fraction(24,5));
+    CHECK(d / 2.421 == Fraction(400,2421));
 }
 
 TEST_CASE("All comparison operations ")
 {
     // test for >
+    CHECK(Fraction(1, 3) > Fraction(1, 100));
+    CHECK(Fraction(1, 3) > Fraction(0, 100));
+    CHECK(Fraction(1, 3) > -1);
     // test for <
     // test for >=
     // test for <=
