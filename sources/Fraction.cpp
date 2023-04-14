@@ -12,8 +12,11 @@ Fraction Fraction::operator+(const Fraction &other) const
 
 Fraction operator+(const Fraction &other, float num)
 {
-    // float temp = other._numerator / other._denominator + num;
-    // return Fraction(temp);
+    // float temp = (float)other._numerator / other._denominator + num;//6.5
+    // temp = temp % 1000;
+    // int denominatorNem = 
+    // int numeratorNew = other._numerator / other._denominator + num;
+    // return Fraction(numeratorNew, );
 }
 Fraction operator+(float num, const Fraction &other)
 {
@@ -32,7 +35,13 @@ Fraction Fraction::operator*(const Fraction &other) const
 {
     return Fraction(_numerator * other._numerator, _denominator * other._denominator);
 }
-Fraction operator*(const Fraction &other, float num);
+Fraction operator*(const Fraction &other, float num){
+    // float temp = (float)other._numerator / other._denominator * num; // 6.5
+    // int numeratorNew = (int)temp;
+    // temp = temp - numeratorNew;
+    // int denominatorNem = temp;
+    // return Fraction(numeratorNew,denominatorNem);
+}
 Fraction operator*(float num, const Fraction &other);
 
 // The / operator to divide two fractions and return their quotient as another fraction in reduced form.
