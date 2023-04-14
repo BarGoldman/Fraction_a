@@ -39,24 +39,38 @@ Fraction Fraction::operator/(const Fraction& other) const{
 Fraction operator/(const Fraction& other, float num);
 Fraction operator/(float num, const Fraction& other);
 
+
+
+
+
+const float TOLERANCE = 0.001;
 // The == operator to compare two fractions for equality and return true or false.
-bool operator==(const Fraction& other) const;
-friend bool operator==(const Fraction& other, float num);
-friend bool operator==(float num, const Fraction& other);
+bool Fraction::operator==(const Fraction& other) const{
+    return (abs(_numerator * other._denominator)<=TOLERANCE && abs(_denominator * other._numerator) <=TOLERANCE);
+}
+bool operator==(const Fraction& other, float num);
+bool operator==(float num, const Fraction& other);
 
 // All comparison operations (>,<,>=,<=)
 //  >
-bool operator>(const Fraction& other) const;
-friend bool operator>(const Fraction& other, float num);
-friend bool operator>(float num, const Fraction& other);
+bool Fraction::operator>(const Fraction& other) const{
+    return (_numerator * other._denominator > _denominator * other._numerator);
+}
+bool operator>(const Fraction& other, float num);
+bool operator>(float num, const Fraction& other);
 
 // <
-bool operator<(const Fraction& other) const;
-friend bool operator<(const Fraction& other, float num);
-friend bool operator<(float num, const Fraction& other);
+bool Fraction::operator<(const Fraction& other) const{
+    return (_numerator * other._denominator < _denominator * other._numerator);
+}
+
+bool operator<(const Fraction& other, float num);
+bool operator<(float num, const Fraction& other);
 
 // >=
-bool operator>=(const Fraction& other) const;
+bool Fraction::operator>=(const Fraction& other) const{
+    return (abs(_numerator * other._denominator) > _denominator * other._numerator);
+}
 bool operator>=(const Fraction& other, float num)
 {
 }
@@ -86,5 +100,5 @@ ostream& operator<<(ostream& output, const Fraction& other)
 // The >> operator to read a fraction from an input stream by taking two integers as input.
 istream& operator>>(istream& input, const Fraction& other)
 {
-    return input;
+    
 }
