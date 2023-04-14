@@ -45,40 +45,28 @@ public:
     friend bool operator==(const Fraction &other, float num);
     friend bool operator==(float num, const Fraction &other);
 
-    //All comparison operations (>,<,>=,<=)
-    // >
+    // All comparison operations (>,<,>=,<=)
+    //  >
+    bool operator>(const Fraction &other) const;
+    friend bool operator>(const Fraction &other, float num);
+    friend bool operator>(float num, const Fraction &other);
 
-    // < 
+    // <
+    bool operator<(const Fraction &other) const;
+    friend bool operator<(const Fraction &other, float num);
+    friend bool operator<(float num, const Fraction &other);
 
     // >=
+    bool operator>=(const Fraction &other) const;
+    friend bool operator>=(const Fraction &other, float num);
+    friend bool operator>=(float num, const Fraction &other);
 
     // <=
-
-    friend std::ostream &operator<<(std::ostream &output, const Fraction &c);
-
-    friend bool operator>(const Fraction &c2, double num);
-
-    // overloading equality operators
-    bool operator==(const Fraction &other) const;
-    // bool operator>(const Fraction &other) const;
-    bool operator<(const Fraction &other) const;
     bool operator<=(const Fraction &other) const;
-    bool operator>=(const Fraction &other) const;
+    friend bool operator<=(const Fraction &other, float num);
+    friend bool operator<=(float num, const Fraction &other);
 
-    friend bool operator>(const Fraction &c1, const Fraction &c2);
-
-    //     Fraction operator*(double num) const;
-    //     // Fraction operator<<(const Fraction &other) const;
-    //     double m_l() const
-    //     {
-    //         return m_l;
-    //     }
-
-    //     double m_r() const
-    //     {
-    //         return m_r;
-    //     }
-
+    // The ++ and -- operator that adds (or substracts) 1 to the fraction. implement both pre and post fix.
     Fraction &operator--()
     {
         _numerator -= _denominator;
@@ -105,27 +93,11 @@ public:
         return tmp;
     }
 
-    //     // Fraction operator--()
-    //     // {
-    //     //     Fraction copy = *this;
-    //     //     m_l--;
-    //     //     return copy;
-    //     // }
 
-    //     // Fraction &operator--()
-    //     // {
-    //     //     m_l -= m_r;
-    //     //     return *this;
-    //     // }
+    // The << operator to print a fraction to an output stream in the format “numerator/denominator”.
+    friend std::ostream &operator<<(std::ostream &output, const Fraction &other);
 
-    //     // 26
-
-    // friend Fraction operator*(const Fraction& c1, const Fraction& c2);
-    // friend Fraction operator+(const Fraction& c1, const Fraction& c2);
-
-    // friend Fraction operator* (const Fraction& other1, const Fraction& other2); // 2.3*b
-    //     friend bool operator>(const Fraction& c1, const Fraction& c2);
-    //    bool operator>=(const Fraction &other) const;
-
+    // The >> operator to read a fraction from an input stream by taking two integers as input.
     friend ostream &operator<<(ostream &output, const Fraction &other);
+
 };

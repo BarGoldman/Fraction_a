@@ -80,7 +80,7 @@ TEST_CASE("Test for operators + , - , * ,/")
     CHECK(b * a == a * b);
     CHECK(c * d == Fraction(2, 15));
     CHECK(d * c == Fraction(2, 15));
-    CHECK(z * b == Fraction(0, 3));
+    CHECK(z * b == 0);
 
     CHECK(b / 3.2 == Fraction(5,24));
     CHECK_THROWS(b / 0);
@@ -94,23 +94,48 @@ TEST_CASE("All comparison operations ")
     // test for >
     CHECK(Fraction(1, 3) > Fraction(1, 100));
     CHECK(Fraction(1, 3) > Fraction(0, 100));
+    CHECK(Fraction(1, 3) > 0);
     CHECK(Fraction(1, 3) > -1);
+    CHECK(Fraction(1, 3) > Fraction(-1, 3));
+
     // test for <
+    CHECK(Fraction(1, 100) < Fraction(1, 3));
+    CHECK(0 < Fraction(1, 3));
+    CHECK(-1 < Fraction(1, 3));
+    CHECK(Fraction(-1, 3) < Fraction(1, 3));
+
     // test for >=
+    CHECK(Fraction(1, 3) >= Fraction(1, 100));
+    CHECK(Fraction(1, 3) >= Fraction(1, 3));
+    CHECK(Fraction(1, 3) >= 0);
+    CHECK(Fraction(1, 3) >= -1);
+    CHECK(Fraction(1, 3) >= Fraction(-1, 3));
+    CHECK(Fraction(1, 2) >= 0.5);
+
     // test for <=
+    CHECK(Fraction(1, 100) <= Fraction(1, 3));
+    CHECK(0 <= Fraction(1, 3));
+    CHECK(-1 <= Fraction(1, 3));
+    CHECK(Fraction(-1, 3) <= Fraction(1, 3));
 }
 
 TEST_CASE("")
 {
-
     // test for ++
+    CHECK(a++ == Fraction(8,3));
+    CHECK(b++ == Fraction(5,3));
+    CHECK(c++ == Fraction(4,3));
+    CHECK(d++ == Fraction(7,5));
 
     // test for --
+    CHECK(a-- == Fraction(2,3));
+    CHECK(b-- == Fraction(-1,3));
+    CHECK(c-- == Fraction(-2,3));
+    CHECK(d-- == Fraction(-3,5));
 }
 
 TEST_CASE("")
 {
-
     // test for <<
 
     // test for >>
