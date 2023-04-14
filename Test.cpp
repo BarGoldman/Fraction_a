@@ -136,7 +136,13 @@ TEST_CASE("")
 
 TEST_CASE("")
 {
-    // test for <<
+    // // test for <<
+    // ostringstream output;
+    // output << a;
+    // CHECK(output.str() == "5/3");
 
-    // test for >>
+    // // test for >>
+    // istringstream input;
+    // a >> input;
+
 }
