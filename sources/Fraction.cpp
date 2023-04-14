@@ -17,9 +17,11 @@ Fraction operator+(const Fraction &other, float num)
     // int denominatorNem = 
     // int numeratorNew = other._numerator / other._denominator + num;
     // return Fraction(numeratorNew, );
+    return Fraction(1, 2);
 }
 Fraction operator+(float num, const Fraction &other)
 {
+    return Fraction(1, 2);
 }
 
 // The - operator to subtract two fractions and return their difference as another fraction in reduced form.
@@ -27,8 +29,12 @@ Fraction Fraction::operator-(const Fraction &other) const
 {
     return Fraction(_numerator - other._numerator, _denominator - other._denominator);
 }
-Fraction operator-(const Fraction &other, float num);
-Fraction operator-(float num, const Fraction &other);
+Fraction operator-(const Fraction &other, float num){
+    return Fraction(1, 2);
+}
+Fraction operator-(float num, const Fraction &other){
+    return Fraction(1, 2);
+}
 
 // The * operator to multiply two fractions and return their product as another fraction in reduced form.
 Fraction Fraction::operator*(const Fraction &other) const
@@ -41,16 +47,23 @@ Fraction operator*(const Fraction &other, float num){
     // temp = temp - numeratorNew;
     // int denominatorNem = temp;
     // return Fraction(numeratorNew,denominatorNem);
+    return Fraction(1, 2);
 }
-Fraction operator*(float num, const Fraction &other);
+Fraction operator*(float num, const Fraction &other){
+    return Fraction(1, 2);
+}
 
 // The / operator to divide two fractions and return their quotient as another fraction in reduced form.
 Fraction Fraction::operator/(const Fraction &other) const
 {
     return Fraction(_numerator / other._numerator, _denominator / other._denominator);
 }
-Fraction operator/(const Fraction &other, float num);
-Fraction operator/(float num, const Fraction &other);
+Fraction operator/(const Fraction &other, float num){
+    return Fraction(1, 2);
+}
+Fraction operator/(float num, const Fraction &other){
+    return Fraction(1, 2);
+}
 
 const float TOLERANCE = 0.0001;
 // The == operator to compare two fractions for equality and return true or false.
@@ -150,4 +163,5 @@ ostream &operator<<(ostream &output, const Fraction &other)
 // The >> operator to read a fraction from an input stream by taking two integers as input.
 istream &operator>>(istream &input, const Fraction &other)
 {
+    return input;
 }
