@@ -15,15 +15,32 @@ public:
     Fraction(const int ml, const int mr):_numerator(ml) , _denominator(mr){};
     ~Fraction();
 
-    friend std::ostream &operator<<(std::ostream &output, const Fraction &c);
+
+    //All operators should work on both sides on fractions and floats type variables. 
+
+    // The + operator to add two fractions and return their sum as another fraction in reduced form.
     Fraction operator+(const Fraction &other) const;
+    friend Fraction operator+(const Fraction &other, double num);
+    friend Fraction operator+(double num, const Fraction &other);
+
+    //The - operator to subtract two fractions and return their difference as another fraction in reduced form.
     Fraction operator-(const Fraction &other) const;
-    Fraction operator/(const Fraction &other) const;
+    friend Fraction operator-(const Fraction &other, double num);
+    friend Fraction operator-(double num, const Fraction &other);
+
+    //The * operator to multiply two fractions and return their product as another fraction in reduced form.
     Fraction operator*(const Fraction &other) const; // a * b
+    friend Fraction operator*(const Fraction &other, double num);
+    friend Fraction operator*(double num, const Fraction &other);
+
+    
+
+    friend std::ostream &operator<<(std::ostream &output, const Fraction &c);
+    Fraction operator/(const Fraction &other) const;
+    
 
 
     friend Fraction operator* (double num, const Fraction& c2);
-    friend Fraction operator+ (const Fraction& c2,double num);
     friend Fraction operator- (const Fraction& c2,double num);
 
     friend bool operator> (const Fraction& c2,double num);

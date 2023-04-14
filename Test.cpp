@@ -45,36 +45,43 @@ TEST_CASE("")
     CHECK(b + a == Fraction(7, 3));
     CHECK(c + d == Fraction(11, 15));
     CHECK(d + c == Fraction(11, 15));
-    CHECK(a + c == Fraction(2,0));
-    CHECK(d + a == Fraction(31,15));
-    CHECK(c + b == Fraction(1,0));
-    CHECK(d + b == Fraction(16,15));
-
     CHECK(z + b == Fraction(2,3));
 
+    CHECK(c+3.2 == Fraction(16,15));
+    CHECK(a+2.421 == Fraction(12263,3000));
+    CHECK(3.2+c == Fraction(16,15));
+
     // test for -
-
     CHECK(a - b == Fraction(1,0));
-
     CHECK(b - a == Fraction(-1,0));
-    CHECK(c - d == Fraction(11, 15));
-    CHECK(d - c == Fraction(11, 15));
-    CHECK(a - c == Fraction(2, 0));
-    CHECK(d - a == Fraction(31, 15));
-    CHECK(c - b == Fraction(1, 0));
-    CHECK(d - b == Fraction(16, 15));
-
+    CHECK(c - d == Fraction(-1,15));
+    CHECK(d - c == Fraction(1,15));
     CHECK(z - b == Fraction(-2, 3));
 
+    CHECK(b-3.2 == Fraction(-38,15));
+    CHECK(3.2-b == Fraction(38,15));
+    CHECK(d-2.421 == Fraction(-2021,1000));
+
     // test for *
+    CHECK(a * b == Fraction(10,9));
+    CHECK(b * a == Fraction(10,9));
+    CHECK(b * a == a * b);
+    CHECK(c * d == Fraction(2,15));
+    CHECK(d * c == Fraction(2,15));
+    CHECK(z * b == Fraction(0, 3));
+
+    CHECK(b*3.2 == Fraction(-38,15));
+    CHECK(b*0 == Fraction(-38,15));
+    CHECK(3.2*b == Fraction(38,15));
+    CHECK(d*2.421 == Fraction(-2021,1000));
+
+
+
     // test for /
 }
 
 TEST_CASE("All comparison operations ")
 {
-
-    // test for ==
-
     // test for >
     // test for <
     // test for >=
