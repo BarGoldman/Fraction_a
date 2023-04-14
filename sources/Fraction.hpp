@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 
 namespace ariel
 {
@@ -13,7 +15,7 @@ private:
 public:
     // constructor
     Fraction(const int ml, const int mr) : _numerator(ml), _denominator(mr){};
-    ~Fraction();
+    ~Fraction(){};
 
     // All operators should work on both sides on fractions and floats type variables.
 
@@ -95,9 +97,9 @@ public:
 
 
     // The << operator to print a fraction to an output stream in the format “numerator/denominator”.
-    friend std::ostream &operator<<(std::ostream &output, const Fraction &other);
+    friend ostream &operator<<(ostream &output, const Fraction &other);
 
     // The >> operator to read a fraction from an input stream by taking two integers as input.
-    friend ostream &operator<<(ostream &output, const Fraction &other);
+    friend istream &operator>>(istream &input, const Fraction &other);
 
 };
