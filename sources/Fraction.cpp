@@ -1,9 +1,11 @@
 #include "Fraction.hpp"
 #include <cmath>
+#include <algorithm>
 
 namespace ariel
 {
 };
+
 
 // The + operator to add two fractions and return their sum as another fraction in reduced form.
 Fraction Fraction::operator+(const Fraction &other) const
@@ -13,29 +15,15 @@ Fraction Fraction::operator+(const Fraction &other) const
     return Fraction(numeratorNew, denominatorNem );
 }
 
+//https://www.geeksforgeeks.org/stdgcd-c-inbuilt-function-finding-gcd/
 Fraction operator+(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator + num;//6.5
-    cout << "temp: " << temp << endl;
-    float t ;
-    float pp = modff(temp , &t);
-    cout << "pp: " << pp << endl;
-    int denominatorNem =  static_cast<int>(pp * 1000);
-
-    // cout << "numerator: " << other._numerator << "denominator: " << other._denominator << endl;
-    // cout <<"num: " << num << endl;
-    // cout << "temp: " << temp << endl;
-    // float test = (float)temp % 1000;
-    // cout << "test: " << test << endl;
-    // int ans  = (int)temp / 1000;
-    // cout << "ans: " << ans << endl;
-
-
-    // (float) num = (float)temp % 1;
-    // int denominatorNem = 
-    int numeratorNew = (int)temp;
-    cout << "denominatorNem: " << denominatorNem << endl;
-    cout << "numeratorNew: " << numeratorNew << endl;
+    float temp = (float)other._numerator / other._denominator + num; 
+    float f_number = temp * 1000;
+    int int_number = (int)f_number;
+    int ans_gcd = __gcd(int_number,1000);
+    int denominatorNem =  1000 / ans_gcd;
+    int numeratorNew = int_number / ans_gcd;
     return Fraction(numeratorNew, denominatorNem);
     // return Fraction(1, 2);
 }
