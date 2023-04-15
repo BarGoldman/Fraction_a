@@ -71,7 +71,8 @@ public:
     // The ++ and -- operator that adds (or substracts) 1 to the fraction. implement both pre and post fix.
     Fraction &operator--()
     {
-        _numerator -= _denominator;
+        
+       _numerator = _numerator - _denominator;
         return *this;
     }
 
@@ -84,7 +85,7 @@ public:
 
     Fraction &operator++()
     {
-        _numerator += _denominator;
+        _numerator = _numerator + _denominator;
         return *this;
     }
 
