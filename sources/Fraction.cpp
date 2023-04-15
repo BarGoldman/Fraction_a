@@ -1,4 +1,5 @@
 #include "Fraction.hpp"
+#include <cmath>
 
 namespace ariel
 {
@@ -7,17 +8,36 @@ namespace ariel
 // The + operator to add two fractions and return their sum as another fraction in reduced form.
 Fraction Fraction::operator+(const Fraction &other) const
 {
-    return Fraction(_numerator + other._numerator, _denominator + other._denominator);
+    int numeratorNew = (_numerator * other._denominator) + (_denominator * other._numerator);
+    int denominatorNem = _denominator * other._denominator;
+    return Fraction(numeratorNew, denominatorNem );
 }
 
 Fraction operator+(const Fraction &other, float num)
 {
-    // float temp = (float)other._numerator / other._denominator + num;//6.5
-    // temp = temp % 1000;
+    float temp = (float)other._numerator / other._denominator + num;//6.5
+    cout << "temp: " << temp << endl;
+    float t ;
+    float pp = modff(temp , &t);
+    cout << "pp: " << pp << endl;
+    int denominatorNem =  static_cast<int>(pp * 1000);
+
+    // cout << "numerator: " << other._numerator << "denominator: " << other._denominator << endl;
+    // cout <<"num: " << num << endl;
+    // cout << "temp: " << temp << endl;
+    // float test = (float)temp % 1000;
+    // cout << "test: " << test << endl;
+    // int ans  = (int)temp / 1000;
+    // cout << "ans: " << ans << endl;
+
+
+    // (float) num = (float)temp % 1;
     // int denominatorNem = 
-    // int numeratorNew = other._numerator / other._denominator + num;
-    // return Fraction(numeratorNew, );
-    return Fraction(1, 2);
+    int numeratorNew = (int)temp;
+    cout << "denominatorNem: " << denominatorNem << endl;
+    cout << "numeratorNew: " << numeratorNew << endl;
+    return Fraction(numeratorNew, denominatorNem);
+    // return Fraction(1, 2);
 }
 Fraction operator+(float num, const Fraction &other)
 {

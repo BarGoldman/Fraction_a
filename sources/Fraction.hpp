@@ -14,7 +14,7 @@ private:
 
 public:
     // constructor
-    Fraction(const int &ml, const int &mr) : _numerator(ml), _denominator(mr){};
+    Fraction(const int ml, const int mr) : _numerator(ml), _denominator(mr){};
     ~Fraction(){};
 
     // All operators should work on both sides on fractions and floats type variables.
