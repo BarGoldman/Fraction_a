@@ -32,8 +32,8 @@ TEST_CASE("The denominator will never equal 0")
 }
 TEST_CASE("The numerator can be equal to 0")
 {
-    CHECK(Fraction(0,6));
-    CHECK(Fraction(0,-6));
+    CHECK_NOTHROW(Fraction(0,6));
+    CHECK_NOTHROW(Fraction(0,-6));
     CHECK(z == Fraction(0, 6));
 }
 
