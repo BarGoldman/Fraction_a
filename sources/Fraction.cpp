@@ -1,31 +1,18 @@
 #include "Fraction.hpp"
-#include <cmath>
-#include <algorithm>
 
 namespace ariel
 {
 };
 
-
 // The + operator to add two fractions and return their sum as another fraction in reduced form.
 Fraction Fraction::operator+(const Fraction &other) const
 {
-    int numeratorNew = (_numerator * other._denominator) + (_denominator * other._numerator);
-    int denominatorNem = _denominator * other._denominator;
-    return Fraction(numeratorNew, denominatorNem );
+    return Fraction(1, 2);
 }
 
-//https://www.geeksforgeeks.org/stdgcd-c-inbuilt-function-finding-gcd/
 Fraction operator+(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator + num; 
-    float f_number = temp * 1000;
-    int int_number = (int)f_number;
-    int ans_gcd = __gcd(int_number,1000);
-    int denominatorNem =  1000 / ans_gcd;
-    int numeratorNew = int_number / ans_gcd;
-    return Fraction(numeratorNew, denominatorNem);
-    // return Fraction(1, 2);
+    return Fraction(1, 2);
 }
 Fraction operator+(float num, const Fraction &other)
 {
@@ -35,131 +22,118 @@ Fraction operator+(float num, const Fraction &other)
 // The - operator to subtract two fractions and return their difference as another fraction in reduced form.
 Fraction Fraction::operator-(const Fraction &other) const
 {
-    return Fraction(_numerator - other._numerator, _denominator - other._denominator);
-}
-Fraction operator-(const Fraction &other, float num){
     return Fraction(1, 2);
 }
-Fraction operator-(float num, const Fraction &other){
+Fraction operator-(const Fraction &other, float num)
+{
+    return Fraction(1, 2);
+}
+Fraction operator-(float num, const Fraction &other)
+{
     return Fraction(1, 2);
 }
 
 // The * operator to multiply two fractions and return their product as another fraction in reduced form.
 Fraction Fraction::operator*(const Fraction &other) const
 {
-    return Fraction(_numerator * other._numerator, _denominator * other._denominator);
-}
-Fraction operator*(const Fraction &other, float num){
-    // float temp = (float)other._numerator / other._denominator * num; // 6.5
-    // int numeratorNew = (int)temp;
-    // temp = temp - numeratorNew;
-    // int denominatorNem = temp;
-    // return Fraction(numeratorNew,denominatorNem);
     return Fraction(1, 2);
 }
-Fraction operator*(float num, const Fraction &other){
+Fraction operator*(const Fraction &other, float num)
+{
+    return Fraction(1, 2);
+}
+Fraction operator*(float num, const Fraction &other)
+{
     return Fraction(1, 2);
 }
 
 // The / operator to divide two fractions and return their quotient as another fraction in reduced form.
 Fraction Fraction::operator/(const Fraction &other) const
 {
-    return Fraction(_numerator / other._numerator, _denominator / other._denominator);
-}
-Fraction operator/(const Fraction &other, float num){
     return Fraction(1, 2);
 }
-Fraction operator/(float num, const Fraction &other){
+Fraction operator/(const Fraction &other, float num)
+{
+    return Fraction(1, 2);
+}
+Fraction operator/(float num, const Fraction &other)
+{
     return Fraction(1, 2);
 }
 
-const float TOLERANCE = 0.0001;
 // The == operator to compare two fractions for equality and return true or false.
 bool Fraction::operator==(const Fraction &other) const
 {
-    return (abs(_numerator - other._denominator) <= TOLERANCE && abs(_denominator - other._numerator) <= TOLERANCE);
-    // return (_numerator - other._denominator == 0 && _denominator - other._numerator == 0);
+    return true;
 }
 bool operator==(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp == num);
+    return true;
 }
 bool operator==(float num, const Fraction &other)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp == num);
+    return true;
 }
 
 // All comparison operations (>,<,>=,<=)
 //  >
 bool Fraction::operator>(const Fraction &other) const
 {
-    return (_numerator * other._denominator > _denominator * other._numerator);
+    return true;
 }
 
 bool operator>(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp > num);
+    return true;
 }
 
 bool operator>(float num, const Fraction &other)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (num > temp);
+    return true;
 }
 
 // <
 bool Fraction::operator<(const Fraction &other) const
 {
-    return (_numerator * other._denominator < _denominator * other._numerator);
+    return true;
 }
 
 bool operator<(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp < num);
+    return true;
 }
 
 bool operator<(float num, const Fraction &other)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (num < temp);
+    return true;
 }
 
 // >=
 bool Fraction::operator>=(const Fraction &other) const
 {
-    return (_numerator * other._denominator > _denominator * other._numerator ||
-            abs(_numerator * other._denominator) <= TOLERANCE && abs(_denominator * other._numerator) <= TOLERANCE);
+    return true;
 }
 bool operator>=(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp >= num);
+    return true;
 }
 bool operator>=(float num, const Fraction &other)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (num >= temp);
+    return true;
 }
 
 // <=
 bool Fraction::operator<=(const Fraction &other) const
 {
-    return (_numerator * other._denominator < _denominator * other._numerator ||
-            abs(_numerator * other._denominator) <= TOLERANCE && abs(_denominator * other._numerator) <= TOLERANCE);
+    return true;
 }
 bool operator<=(const Fraction &other, float num)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (temp <= num);
+    return true;
 }
 bool operator<=(float num, const Fraction &other)
 {
-    float temp = (float)other._numerator / other._denominator;
-    return (num <= temp);
+    return true;
 }
 
 // The << operator to print a fraction to an output stream in the format “numerator/denominator”.

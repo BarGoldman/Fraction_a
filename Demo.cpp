@@ -22,13 +22,8 @@ int main() {
     cout << "a-b " << a-b << endl; 
     cout << "a/b " << a/b << endl; 
     cout << "a*b " << a*b << endl; 
-    cout << "2.3*b " << 2.3*b << endl; //23/15 --> 1/2
-    cout << "a+2.421 " << a+2.421 << endl; // 12263/3000
-    cout << "--------------------Bar Part-------- " << endl;
-    Fraction z(1,2), y(4,5);
-    cout << "z+y " << z+y << endl;
-    cout << "z+2: " << z+2.6 << endl;
-    cout << "--------------------Bar Part-------- " << endl;
+    cout << "2.3*b " << 2.3*b << endl; 
+    cout << "a+2.421 " << a+2.421 << endl; 
     Fraction c = a+b-1;
     cout << c++ << endl;
     cout << --c << endl;
