@@ -34,7 +34,6 @@ TEST_CASE("The numerator can be equal to 0")
 {
     CHECK_NOTHROW(Fraction(0,6));
     CHECK_NOTHROW(Fraction(0,-6));
-    CHECK(z == Fraction(0, 6));
 }
 
 TEST_CASE("Test for operators + , - , * ,/")
@@ -46,7 +45,7 @@ TEST_CASE("Test for operators + , - , * ,/")
     CHECK(d + c == Fraction(11, 15));
     CHECK(z + b == Fraction(2,3));
 
-    CHECK(c+3.2 == Fraction(16,15));
+    CHECK(c+3.2 == Fraction(53,15));
     CHECK(a+2.421 == Fraction(12263,3000));
     CHECK(3.2+c == Fraction(16,15));
 

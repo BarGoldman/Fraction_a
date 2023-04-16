@@ -143,7 +143,7 @@ ostream &operator<<(ostream &output, const Fraction &other)
 }
 
 // The >> operator to read a fraction from an input stream by taking two integers as input.
-istream &operator>>(istream &input, const Fraction &other)
+istream &operator>>(istream &input, Fraction &other)
 {
     return input;
 }
