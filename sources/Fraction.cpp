@@ -7,7 +7,7 @@ namespace ariel
 
 
 // constructor
-Fraction::Fraction(const int num_erator = 0 , const int denominator = 1){
+Fraction::Fraction(const int num_erator, const int denominator){
     int ans = __gcd(num_erator, denominator);
     _numerator = num_erator / ans ;
     _denominator = denominator / ans;
