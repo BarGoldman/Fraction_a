@@ -21,7 +21,6 @@ public:
 
     // The + operator to add two fractions and return their sum as another fraction in reduced form.
     Fraction operator+(const Fraction& other) const;
-    Fraction operator+(float num);
     friend Fraction operator+(const Fraction& other, float num);
     friend Fraction operator+(float num, const Fraction& other);
 

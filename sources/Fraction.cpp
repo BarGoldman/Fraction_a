@@ -1,7 +1,16 @@
 #include "Fraction.hpp"
+#include <algorithm>
 
 namespace ariel
 {
+};
+
+
+// constructor
+Fraction::Fraction(const int num_erator = 0 , const int denominator = 1){
+    int ans = __gcd(num_erator, denominator);
+    _numerator = num_erator / ans ;
+    _denominator = denominator / ans;
 };
 
 // The + operator to add two fractions and return their sum as another fraction in reduced form.
