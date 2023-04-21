@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FRACTION_H
+#define FRACTION_H
 #include <iostream>
 using namespace std;
 
@@ -14,8 +15,7 @@ private:
 
 public:
     // constructor
-    Fraction(const int num_erator ,const int denominator);
-    ~Fraction(){};
+    Fraction(int num_erator ,int denominator);
 
     // All operators should work on both sides on fractions and floats type variables.
 
@@ -67,12 +67,14 @@ public:
     friend bool operator<=(float num, const Fraction& other);
 
     // The ++ and -- operator that adds (or substracts) 1 to the fraction. implement both pre and post fix.
+
+    //prefix
     Fraction &operator--()
     {
         _numerator -= _denominator;
         return *this;
     }
-
+    // postfix
     Fraction operator--(int)
     {
         Fraction tmp(*this);
@@ -80,12 +82,14 @@ public:
         return tmp;
     }
 
+    //prefix ++i 
     Fraction &operator++()
     {
         _numerator += _denominator;
         return *this;
     }
 
+    // postfix i++
     Fraction operator++(int)
     {
         Fraction tmp(*this);
@@ -101,3 +105,5 @@ public:
     friend istream& operator>>(istream &input, Fraction& other);
 
 };
+
+#endif

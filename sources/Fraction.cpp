@@ -5,11 +5,15 @@ namespace ariel
 {
 };
 
-
 // constructor
-Fraction::Fraction(const int num_erator, const int denominator){
+Fraction::Fraction(int num_erator, int denominator)
+{
+    if (denominator == 0)
+    {
+        throw("The denominator will never equal 0");
+    }
     int ans = __gcd(num_erator, denominator);
-    _numerator = num_erator / ans ;
+    _numerator = num_erator / ans;
     _denominator = denominator / ans;
 };
 
@@ -63,6 +67,10 @@ Fraction Fraction::operator/(const Fraction &other) const
 }
 Fraction operator/(const Fraction &other, float num)
 {
+    if (num == 0)
+    {
+        throw("The denominator will never equal 0");
+    }
     return Fraction(1, 2);
 }
 Fraction operator/(float num, const Fraction &other)
